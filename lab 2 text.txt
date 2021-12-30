@@ -1,0 +1,464 @@
+khaled samir : owner of the repo .
+
+
+create local repository 
+git switch -c khaled1
+$ git add .
+$ git commit -m "add new branch1"
+$ git push -u origin khaled1
+
+1 - $ git switch master
+ 
+$ git pull origin elashry .
+$ git add .
+$ git commit -m "merging branches" .
+$ git pull . 
+
+$ git pull origin branch1_hosni.
+$ git add .
+$ git commit -m "merging branch 2" .
+$ git pull . 
+
+2 - $ git switch khaled1 
+$ git fetch --all 
+
+3 - $ git switch khaled1
+$ git log 
+##history before revert 
+commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d (HEAD -> khaled1, origin/khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:13:29 2021 +0200
+
+    added a new prompt
+##history after revert
+$ git log
+git revert 59a042b9138cfadd8a2f4a93e77107647bc9df86 
+commit 59a042b9138cfadd8a2f4a93e77107647bc9df86 (HEAD -> khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:19:41 2021 +0200
+
+    Revert "added a new prompt"
+
+    This reverts commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d.
+###### commits of revert : 
+commit 59a042b9138cfadd8a2f4a93e77107647bc9df86 (HEAD -> khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:19:41 2021 +0200
+
+    Revert "added a new prompt"
+
+    This reverts commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d.
+
+commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d (origin/khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:13:29 2021 +0200
+
+    added a new prompt
+
+commit 1ddef9c510b63e8ee3bc6d88a4ffd96340a5b012
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:54:42 2021 +0200
+
+    Revert "edit of name"
+
+    This reverts commit 73239a41140050951187294d7f3499a3b9308497.
+
+commit 73239a41140050951187294d7f3499a3b9308497 (origin/master, origin/HEAD, master)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:44:54 2021 +0200
+
+    edit of name .
+
+git diff 9ff28d0cd093dc014cf9b381620f0759cb837d4d c126138420c476e574bf9307cf1fb61dd54d5161
+diff --git a/khaled.js b/khaled.js
+index c72c940..638bb6e 100644
+--- a/khaled.js
++++ b/khaled.js
+@@ -7,6 +7,4 @@ console.log("hello world");
+
+
+
+-console.log("hosni")
+-
+-var name = prompt ("enter your name");
++console.log("hosni")
+\ No newline at end of file
+
+4 - git reset --hard
+
+5 - git reset --hard origin/master
+
+6 - $ git log -5
+commit 73239a41140050951187294d7f3499a3b9308497 (HEAD -> khaled1, origin/master, origin/HEAD, master)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:44:54 2021 +0200
+
+    edit of name
+
+commit 53f6c41b913e9a8286fa1042f71663a9e60c996e
+Merge: 9cf6def c126138
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:16:31 2021 +0200
+
+    merge branch 2
+
+commit c126138420c476e574bf9307cf1fb61dd54d5161 (origin/branch1_hosni, branch1_hosni)
+Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+Date:   Thu Dec 30 16:13:54 2021 +0200
+
+    hosni add line
+
+commit 9cf6defa81d1f66c50b138d0f8b4851d69a642c5
+Merge: e9f15ba 4edc984
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:08:29 2021 +0200
+
+    merging branches
+
+commit 4edc9840a9bb8cd1f040d90c79d6f73d258bb6af
+Author: elashry <mohamedhossnyelashry@gmail.com>
+Date:   Thu Dec 30 16:01:09 2021 +0200
+
+    the second change
+
+7 - $ git log --graph
+* commit 73239a41140050951187294d7f3499a3b9308497 (HEAD -> khaled1, origin/master, origin/HEAD, master)
+| Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| Date:   Thu Dec 30 16:44:54 2021 +0200
+|
+|     edit of name
+|
+*   commit 53f6c41b913e9a8286fa1042f71663a9e60c996e
+|\  Merge: 9cf6def c126138
+| | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | Date:   Thu Dec 30 16:16:31 2021 +0200
+| |
+| |     merge branch 2
+| |
+| * commit c126138420c476e574bf9307cf1fb61dd54d5161 (origin/branch1_hosni, branch1_hosni)
+| | Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+| | Date:   Thu Dec 30 16:13:54 2021 +0200
+| |
+| |     hosni add line
+| |
+| * commit 38f0012453daced0545ed1b525e9a8c74632c4f4
+| | Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+| | Date:   Thu Dec 30 15:45:00 2021 +0200
+| |
+| |     edithosni
+| |
+* |   commit 9cf6defa81d1f66c50b138d0f8b4851d69a642c5
+|\ \  Merge: e9f15ba 4edc984
+| | | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | | Date:   Thu Dec 30 16:08:29 2021 +0200
+| | |
+| | |     merging branches
+| | |
+| * | commit 4edc9840a9bb8cd1f040d90c79d6f73d258bb6af
+| | | Author: elashry <mohamedhossnyelashry@gmail.com>
+| | | Date:   Thu Dec 30 16:01:09 2021 +0200
+| | |
+| | |     the second change
+| | |
+| * | commit 1cb784de54d7dab94f2a416bdcd6b6671e7f3df1
+| | | Author: elashry <mohamedhossnyelashry@gmail.com>
+| | | Date:   Thu Dec 30 15:43:52 2021 +0200
+| | |
+| | |     add another line
+| | |
+| * | commit 0ee0ef0103930ade37870284b8bd2f888958ab75
+| |/  Author: elashry <mohamedhossnyelashry@gmail.com>
+| |   Date:   Thu Dec 30 15:29:12 2021 +0200
+| |
+| |       add new line
+| |
+* | commit e9f15bac31df6dbde8355ee6c12062c6100d6b39
+| | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | Date:   Thu Dec 30 15:49:23 2021 +0200
+| |
+| |     first edit
+| |
+* | commit 1d0bcec62a25caf2f8d6997237dc95c716090876
+
+8 - $ git add .
+$ git commit -m "lab 2".
+$ git switch elashry .
+
+9 - diff --git a/khaled.js b/khaled.js
+index a7b5158..cc3c93a 100644
+--- a/khaled.js
++++ b/khaled.js
+@@ -1,11 +1,2 @@
+ console.log("hello world");
+-
+-
+-
+-
+-
+-
+-
+-
+-console.log("hosni")
+-console.log ("khaled edriss")
+\ No newline at end of file
++console.log("add new branch from elashry")
+\ No newline at end of file
+
+  
+khaled samir : owner of the repo .
+
+
+create local repository 
+git switch -c khaled1
+$ git add .
+$ git commit -m "add new branch1"
+$ git push -u origin khaled1
+
+1 - $ git switch master
+ 
+$ git pull origin elashry .
+$ git add .
+$ git commit -m "merging branches" .
+$ git pull . 
+
+$ git pull origin branch1_hosni.
+$ git add .
+$ git commit -m "merging branch 2" .
+$ git pull . 
+
+2 - $ git switch khaled1 
+$ git fetch --all 
+
+3 - $ git switch khaled1
+$ git log 
+##history before revert 
+commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d (HEAD -> khaled1, origin/khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:13:29 2021 +0200
+
+    added a new prompt
+##history after revert
+$ git log
+git revert 59a042b9138cfadd8a2f4a93e77107647bc9df86 
+commit 59a042b9138cfadd8a2f4a93e77107647bc9df86 (HEAD -> khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:19:41 2021 +0200
+
+    Revert "added a new prompt"
+
+    This reverts commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d.
+###### commits of revert : 
+commit 59a042b9138cfadd8a2f4a93e77107647bc9df86 (HEAD -> khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:19:41 2021 +0200
+
+    Revert "added a new prompt"
+
+    This reverts commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d.
+
+commit 9ff28d0cd093dc014cf9b381620f0759cb837d4d (origin/khaled1)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 17:13:29 2021 +0200
+
+    added a new prompt
+
+commit 1ddef9c510b63e8ee3bc6d88a4ffd96340a5b012
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:54:42 2021 +0200
+
+    Revert "edit of name"
+
+    This reverts commit 73239a41140050951187294d7f3499a3b9308497.
+
+commit 73239a41140050951187294d7f3499a3b9308497 (origin/master, origin/HEAD, master)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:44:54 2021 +0200
+
+    edit of name .
+
+git diff 9ff28d0cd093dc014cf9b381620f0759cb837d4d c126138420c476e574bf9307cf1fb61dd54d5161
+diff --git a/khaled.js b/khaled.js
+index c72c940..638bb6e 100644
+--- a/khaled.js
++++ b/khaled.js
+@@ -7,6 +7,4 @@ console.log("hello world");
+
+
+
+-console.log("hosni")
+-
+-var name = prompt ("enter your name");
++console.log("hosni")
+\ No newline at end of file
+
+4 - git reset --hard
+
+5 - git reset --hard origin/master
+
+6 - $ git log -5
+commit 73239a41140050951187294d7f3499a3b9308497 (HEAD -> khaled1, origin/master, origin/HEAD, master)
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:44:54 2021 +0200
+
+    edit of name
+
+commit 53f6c41b913e9a8286fa1042f71663a9e60c996e
+Merge: 9cf6def c126138
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:16:31 2021 +0200
+
+    merge branch 2
+
+commit c126138420c476e574bf9307cf1fb61dd54d5161 (origin/branch1_hosni, branch1_hosni)
+Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+Date:   Thu Dec 30 16:13:54 2021 +0200
+
+    hosni add line
+
+commit 9cf6defa81d1f66c50b138d0f8b4851d69a642c5
+Merge: e9f15ba 4edc984
+Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+Date:   Thu Dec 30 16:08:29 2021 +0200
+
+    merging branches
+
+commit 4edc9840a9bb8cd1f040d90c79d6f73d258bb6af
+Author: elashry <mohamedhossnyelashry@gmail.com>
+Date:   Thu Dec 30 16:01:09 2021 +0200
+
+    the second change
+
+7 - $ git log --graph
+* commit 73239a41140050951187294d7f3499a3b9308497 (HEAD -> khaled1, origin/master, origin/HEAD, master)
+| Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| Date:   Thu Dec 30 16:44:54 2021 +0200
+|
+|     edit of name
+|
+*   commit 53f6c41b913e9a8286fa1042f71663a9e60c996e
+|\  Merge: 9cf6def c126138
+| | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | Date:   Thu Dec 30 16:16:31 2021 +0200
+| |
+| |     merge branch 2
+| |
+| * commit c126138420c476e574bf9307cf1fb61dd54d5161 (origin/branch1_hosni, branch1_hosni)
+| | Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+| | Date:   Thu Dec 30 16:13:54 2021 +0200
+| |
+| |     hosni add line
+| |
+| * commit 38f0012453daced0545ed1b525e9a8c74632c4f4
+| | Author: Hosni Aboshanab <hosniaboshanab25@gmail.com>
+| | Date:   Thu Dec 30 15:45:00 2021 +0200
+| |
+| |     edithosni
+| |
+* |   commit 9cf6defa81d1f66c50b138d0f8b4851d69a642c5
+|\ \  Merge: e9f15ba 4edc984
+| | | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | | Date:   Thu Dec 30 16:08:29 2021 +0200
+| | |
+| | |     merging branches
+| | |
+| * | commit 4edc9840a9bb8cd1f040d90c79d6f73d258bb6af
+| | | Author: elashry <mohamedhossnyelashry@gmail.com>
+| | | Date:   Thu Dec 30 16:01:09 2021 +0200
+| | |
+| | |     the second change
+| | |
+| * | commit 1cb784de54d7dab94f2a416bdcd6b6671e7f3df1
+| | | Author: elashry <mohamedhossnyelashry@gmail.com>
+| | | Date:   Thu Dec 30 15:43:52 2021 +0200
+| | |
+| | |     add another line
+| | |
+| * | commit 0ee0ef0103930ade37870284b8bd2f888958ab75
+| |/  Author: elashry <mohamedhossnyelashry@gmail.com>
+| |   Date:   Thu Dec 30 15:29:12 2021 +0200
+| |
+| |       add new line
+| |
+* | commit e9f15bac31df6dbde8355ee6c12062c6100d6b39
+| | Author: khaled_edriss <khaledsamiredriss776@gmail.com>
+| | Date:   Thu Dec 30 15:49:23 2021 +0200
+| |
+| |     first edit
+| |
+* | commit 1d0bcec62a25caf2f8d6997237dc95c716090876
+
+8 - $ git add .
+$ git commit -m "lab 2".
+$ git switch elashry .
+
+9 - diff --git a/khaled.js b/khaled.js
+index a7b5158..cc3c93a 100644
+--- a/khaled.js
++++ b/khaled.js
+@@ -1,11 +1,2 @@
+ console.log("hello world");
+-
+-
+-
+-
+-
+-
+-
+-
+-console.log("hosni")
+-console.log ("khaled edriss")
+\ No newline at end of file
++console.log("add new branch from elashry")
+\ No newline at end of file
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+

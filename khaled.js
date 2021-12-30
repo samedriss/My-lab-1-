@@ -8,4 +8,5 @@ console.log("hello world");
 
 
 console.log("hosni")
-console.log ("khaled edriss")
+
+var name = prompt ("enter your name");
